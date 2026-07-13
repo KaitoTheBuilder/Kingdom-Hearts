@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>♡ saicy.html ♡</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="desktop-bg"></div>
+<div id="doodles">
+  <span class="doodle-star" style="top:6%; left:8%; transform:rotate(-12deg);"></span>
+  <span class="doodle-star" style="top:14%; right:10%; width:18px; height:18px; transform:rotate(20deg);"></span>
+  <span class="doodle-heart" style="top:38%; left:4%;"></span>
+  <span class="doodle-star" style="bottom:22%; left:6%; width:20px; height:20px; transform:rotate(8deg);"></span>
+  <span class="doodle-heart" style="bottom:30%; right:5%; transform:rotate(-10deg);"></span>
+  <span class="doodle-star" style="bottom:8%; right:12%; transform:rotate(-18deg);"></span>
+  <span class="doodle-star" style="top:60%; right:3%; width:16px; height:16px;"></span>
+</div>
+<canvas id="ambient"></canvas>
+
+<!-- ============ LOADING ============ -->
+<section class="scene active" id="loading">
+  <div class="book-wrap" id="giftBox">
+    <div class="box-shadow-ellipse"></div>
+    <div class="bookmark-ribbon" id="ribbonV"></div>
+    <div class="book-pages"><div class="box-duck" id="boxDuck">🐥</div></div>
+    <div class="glow-burst" id="burst"></div>
+    <div class="gift-tag" id="giftTag">
+      <div class="tag-string"></div>
+      <div class="tag-card"><div class="tag-hole"></div>open me</div>
+    </div>
+    <div class="book-cover" id="boxLid">
+      <div class="sheen"></div>
+      <div class="cover-star"></div>
+      <div class="cover-title script">for saicy</div>
+      <div class="cover-band" id="ribbonH"></div>
+      <div class="bow" id="bow">
+        <span class="bow-loop left"></span>
+        <span class="bow-loop right"></span>
+        <span class="bow-knot"></span>
+      </div>
+      <div class="seal" id="seal">♥</div>
+    </div>
+  </div>
+  <p class="loading-title script">Small space. Infinite love ♥</p>
+  <p class="pixel" style="font-size:1.15rem; color:var(--deep);">for saicy<span class="blink">_</span></p>
+  <div class="loadbar"><div class="loadbar-fill"></div></div>
+  <button class="enter-btn" id="openBoxBtn">open the diary ♥</button>
+</section>
+
+<!-- ============ GATE ============ -->
+<section class="scene" id="gate">
+  <div class="win">
+    <div class="win-title"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span class="wt">members-only.exe</span></div>
+    <div class="win-body">
+      <p class="hand" style="color:var(--pink-hot); font-size:1.2rem; margin-bottom:6px;">✦ only one special person can enter ✦</p>
+      <h1 class="script">The Secret Word</h1>
+      <p class="hint">you already know it, love</p>
+      <input type="text" id="gate-input" placeholder="type the secret word..." autocomplete="off">
+      <div class="gate-msg" id="gate-msg"></div>
+      <button class="enter-btn gate-submit" id="gateSubmitBtn">enter ✧</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SITE (after entry) ============ -->
+<section class="scene" id="site-scene">
+  <div class="marquee"><span>✨&nbsp; Welcome to Saicy's birthday site &nbsp;✨&nbsp; this page was made with love &nbsp;✨&nbsp; thank you for celebrating with us &nbsp;✨&nbsp; happy birthday saicy!! &nbsp;✨&nbsp; </span></div>
+
+  <div class="browser-window">
+    <div class="washi tl"></div>
+    <div class="washi tr"></div>
+    <div class="win-title"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><span class="wt" id="crumbTitle">♡ home.html</span></div>
+    <div class="browser-body">
+
+      <!-- sidebar -->
+      <aside class="sidebar">
+        <div class="widget">
+          <div class="widget-head">♥ profile</div>
+          <div class="widget-body profile-body">
+            <img src="https://raw.githubusercontent.com/KaitoTheBuilder/Kingdom-Hearts/main/Profile%20Picture/saicy_pfp.jpeg" class="profile-avatar">
+            <div class="pname">saicy ♡</div>
+            <div class="stat">status: officially another year cuter</div>
+            <div class="mood-chip">mood: loved</div>
+          </div>
+        </div>
+
+        <div class="widget">
+          <div class="widget-head">♥ together</div>
+          <div class="widget-body">
+            <div class="counter-num pixel" id="countdownNum">0000d 00:00:00</div>
+            <div class="counter-label">since april 20</div>
+          </div>
+        </div>
+
+        <div class="widget">
+          <div class="widget-head">♥ now playing</div>
+          <div class="widget-body">
+            <div class="cassette">
+              <div class="cassette-window">
+                <div class="reel" id="reelL"></div>
+                <div class="cassette-label">Especially For You</div>
+                <div class="reel" id="reelR"></div>
+              </div>
+              <div class="np-row">
+                <button class="np-btn" id="widgetMusicBtn">▶</button>
+                <div class="track-sub">by MYMP</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="widget">
+          <div class="widget-head">♥ guestbook</div>
+          <div class="widget-body" id="guestbook">
+            <div class="gb-msg"><b>kaito</b><br>Happy birthday to my favorite person in the whole world ♥</div>
+            <div class="gb-msg"><b>kaito</b><br>I hope you appreciate my craft making this website. I love you, and go ahead, look around!</div>
+          </div>
+        </div>
+
+        <div class="widget">
+          <div class="widget-head">♥ menu</div>
+          <div class="widget-body">
+            <ul class="nav-list" id="sideNav">
+              <li><button data-target="home" class="on">♡ home</button></li>
+              <li><button data-target="letter">♡ letter</button></li>
+              <li><button data-target="gallery">♡ gallery</button></li>
+              <li><button data-target="wall">♡ polaroid wall</button></li>
+              <li><button data-target="surprise">♡ surprise</button></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <!-- content -->
+      <main class="content-area">
+
+        <div id="home" class="content-page">
+          <div class="content-inner">
+            <h1>Happy Birthday, <span class="name script">Saicy</span> <span style="color:var(--pink-hot)">♥</span></h1>
+            <p class="subtitle">"Every memory with you became one of my favorite stories."</p>
+            <div class="sticker-row">
+              <div class="sticker">✦ made with love ✦</div>
+              <div class="sticker">est. us</div>
+              <div class="sticker">read on →</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="letter" class="content-page" style="display:none;">
+          <div class="content-inner">
+            <p class="kicker pixel">for your eyes only</p>
+            <h2 class="h2title script">A Little Letter</h2>
+            <div class="letter-paper">
+              <p>My dearest Saicy,</p>
+              <p>If you are reading this, it means you found the secret code inside my gift! I planned this out, and honestly, it was one of the hardest things I've ever made. I spent around one to two weeks just building this website, and I really hope you find it adorable. To be honest, I didn't have enough money to buy other things, but then I remembered I can build websites—so I made one just for your birthday. I even made up fake excuses that I was just playing video games, but I wasn't; I was working on this for you.</p>
+              <p>Today is your birthday, and I hope you truly enjoy your day. As for our relationship, I want you to stay brave in it. I know I have a lot of pride, but I am trying my absolute best to change. I am so glad that I met you. Without you, all the colors in my world would be monochrome. If I had to describe the color of your aura, I would confidently say it is red—not red for violence, HAHAHAHA, but red for love.</p>
+              <p>Despite my past, you showed me the true meaning of love. You fully embrace me, like you're holding me with open arms. Every single bit of your effort is appreciated, even the smallest things. Today is your day. I am so proud of you, and thank you for being my number one supporter, for being kind, grateful, a cutie patootie, and so much more. Always remember that I am right here by your side.</p>
+              <p>P.S. Don't forget to explore and discover things around the site!</p>
+              <p class="letter-sign">– Always yours</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="gallery" class="content-page" style="display:none;">
+          <div class="content-inner">
+            <p class="kicker pixel">a few favorites</p>
+            <h2 class="h2title script">Photo Gallery of Us</h2>
+            <div class="corkboard">
+              <div class="gallery-grid">
+                <div class="polaroid"><div class="tape"></div>
+                  <div class="polaroid-photo"><div class="flip-inner">
+                    <img src="https://raw.githubusercontent.com/KaitoTheBuilder/Kingdom-Hearts/main/Gallery/photo1.jpeg" class="flip-front">
+                    <div class="flip-back"><p>67 HAHAHAHAHAHAHAHA.</p></div>
+                  </div><span class="flip-hint">tap ↻</span></div>
+                </div>
+                <div class="polaroid"><div class="tape"></div>
+                  <div class="polaroid-photo"><div class="flip-inner">
+                    <img src="https://raw.githubusercontent.com/KaitoTheBuilder/Kingdom-Hearts/main/Gallery/photo2.jpeg" class="flip-front">
+                    <div class="flip-back"><p>Cuteon kita igdi like no joke.</p></div>
+                  </div><span class="flip-hint">tap ↻</span></div>
+                </div>
+                <div class="polaroid"><div class="tape"></div>
+                  <div class="polaroid-photo"><div class="flip-inner">
+                    <img src="https://raw.githubusercontent.com/KaitoTheBuilder/Kingdom-Hearts/main/Gallery/photo3.jpeg" class="flip-front">
+                    <div class="flip-back"><p>To be honest garo kita lola saka lolo btw cutie si bear</p></div>
+                  </div><span class="flip-hint">tap ↻</span></div>
+                </div>
+                <div class="polaroid"><div class="tape"></div>
+                  <div class="polaroid-photo"><div class="flip-inner">
+                    <img src="https://raw.githubusercontent.com/KaitoTheBuilder/Kingdom-Hearts/main/Gallery/photo4.jpeg" class="flip-front">
+                    <div class="flip-back"><p>Out of nowhere man ang picture mo ay, garo kana sisiw pati</p></div>
+                  </div><span class="flip-hint">tap ↻</span></div>
+                </div>
+                <div class="polaroid"><div class="tape"></div>
+                  <div class="polaroid-photo"><div class="flip-inner">
+                    <img src="https://raw.githubusercontent.com/KaitoTheBuilder/Kingdom-Hearts/main/Gallery/photo5.jpeg" class="flip-front">
+                    <div class="flip-back"><p>Ini si pinaka first picture na ginamit natin si gift ko na webcam, malinawon and cuteon kita raghhhh</p></div>
+                  </div><span class="flip-hint">tap ↻</span></div>
+                </div>
+                <div class="polaroid"><div class="tape"></div>
+                  <div class="polaroid-photo"><div class="flip-inner">
+                    <img src="https://raw.githubusercontent.com/KaitoTheBuilder/Kingdom-Hearts/main/Gallery/photo6.jpeg" class="flip-front">
+                    <div class="flip-back"><p>My forever favorite picture of all time</p></div>
+                  </div><span class="flip-hint">tap ↻</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="wall" class="content-page" style="display:none;">
+          <div class="content-inner">
+            <p class="kicker pixel">just for her</p>
+            <h2 class="h2title script">Polaroid Wall of Her</h2>
+            <div class="wall" id="wallGrid"><div class="twine-line"></div></div>
+          </div>
+        </div>
+
+        <div id="surprise" class="content-page" style="display:none;">
+          <div class="content-inner">
+            <h2 class="h2title script">♥ Surprise</h2>
+            <div class="letter-paper">
+              <p>Thank you very much for being by my side. Thank you for putting up with me, for the laughing and playful fights, for being my favorite person to talk to, and for being both a girlfriend and a best friend to me—just like a 2-in-1 coffee or a buy-1-take-1 burger.</p>
+              <p>I hope your birthday feels as exciting and joyful as your personality, and that it makes you feel the way you make everyone else feel every single day.</p>
+              <p class="letter-sign">happy birthday, nene.</p>
+            </div>
+            <button class="wish-btn" id="confettiBtn">make a wish ✦</button>
+            <p class="wish-hint" id="wishHint"></p>
+            <div class="duck-reveal" id="duckReveal">
+              <button class="duck-medallion" id="duck-icon">🐥</button>
+              <p class="duck-caption">...you found something.</p>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+</section>
+
+<div id="yt-player" style="position:fixed; left:-9999px; top:-9999px; width:2px; height:2px;"></div>
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<!-- taskbar -->
+<div id="taskbar">
+  <button id="start-btn">✦ start</button>
+  <div class="taskbar-right">
+    <button id="taskbar-music">♪</button>
+    <div id="taskbar-clock" class="pixel">--:--</div>
+  </div>
+</div>
+<div id="start-menu">
+  <button data-target="home">♡ home.html</button>
+  <button data-target="letter">♡ letter.html</button>
+  <button data-target="gallery">♡ gallery.html</button>
+  <button data-target="wall">♡ wall.html</button>
+  <button data-target="surprise">♡ surprise.html</button>
+</div>
+
+<!-- duck modal -->
+<div class="modal-overlay" id="duckModal">
+  <div class="modal-card">
+    <button class="modal-close" id="duckClose">✕</button>
+    <h3 class="script">You found the duck.</h3>
+    <p>Enter the secret code.</p>
+    <input type="text" id="duckInput" placeholder="••••" inputmode="numeric">
+    <div class="modal-msg" id="duckMsg"></div>
+    <div class="modal-actions">
+      <button class="primary" id="duckSubmit">unlock</button>
+      <button class="ghost" id="duckCancel">not now</button>
+    </div>
+  </div>
+</div>
+
+<!-- future letter modal -->
+<div class="modal-overlay" id="futureModal">
+  <div class="modal-card">
+    <button class="modal-close" id="futureClose">✕</button>
+    <h3 class="script">A Letter to Our Future</h3>
+    <p class="hand" style="color:var(--pink-hot); font-size:1.15rem;">our future is still being written.</p>
+    <div class="future-letter">Dear future us — this page is intentionally blank. We'll write it together, one day at a time.</div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
